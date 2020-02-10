@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
             email: ["", [Validators.required, Validators.email]],
             password: ["", Validators.required]
         });
-        this.alertify.success("Successfully logged in");
     }
 
     login() {

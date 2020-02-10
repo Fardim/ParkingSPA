@@ -27,6 +27,8 @@ import { LayoutModule } from "app/layout/layout.module";
 import { SampleModule } from "app/main/sample/sample.module";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { JwtModule } from "@auth0/angular-jwt";
+import { ServiceWorkerModule } from "@angular/service-worker";
+import { environment } from "../environments/environment";
 
 export function tokenGetter() {
     const token = localStorage.getItem("token");
@@ -99,6 +101,9 @@ const appRoutes: Routes = [
                     "localhost:5001"
                 ]
             }
+        }),
+        ServiceWorkerModule.register("ngsw-worker.js", {
+            enabled: environment.production
         })
     ],
     bootstrap: [AppComponent]

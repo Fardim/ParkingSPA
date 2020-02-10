@@ -1,3 +1,4 @@
+import { PwaService } from "./shared/_services/pwa.service";
 import { JwtHelperService } from "@auth0/angular-jwt";
 import { AuthService } from "./auth/services/auth.service";
 import { User } from "./shared/_models/User";
@@ -52,7 +53,8 @@ export class AppComponent implements OnInit, OnDestroy {
         private _fuseTranslationLoaderService: FuseTranslationLoaderService,
         private _translateService: TranslateService,
         private _platform: Platform,
-        private authService: AuthService
+        private authService: AuthService,
+        private pwa: PwaService
     ) {
         // Get default navigation
         this.navigation = navigation;

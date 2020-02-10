@@ -1,3 +1,4 @@
+import { PwaService } from "./../../../shared/_services/pwa.service";
 import { User } from "./../../../shared/_models/User";
 import { Router } from "@angular/router";
 import { AlertifyService } from "./../../../shared/_services/alertify.service";
@@ -45,7 +46,8 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         private _translateService: TranslateService,
         public authService: AuthService,
         private alertify: AlertifyService,
-        private router: Router
+        private router: Router,
+        public Pwa: PwaService
     ) {
         // Set the defaults
         this.userStatusOptions = [
@@ -172,5 +174,9 @@ export class ToolbarComponent implements OnInit, OnDestroy {
         localStorage.removeItem("user");
         this.alertify.messge("Logged out");
         this.router.navigate(["/auth"]);
+    }
+
+    installPwa(): void {
+        this.Pwa.promptEvent.prompt();
     }
 }

@@ -80,6 +80,16 @@
 
             <div class="toolbar-separator"></div>
 
+            <mat-icon
+                *ngIf="Pwa.promptEvent"
+                class="mx-24"
+                style="cursor: pointer;"
+                (click)="installPwa()"
+                >cloud_download</mat-icon
+            >
+
+            <div *ngIf="Pwa.promptEvent" class="toolbar-separator"></div>
+
             <button
                 mat-button
                 fxHide
